@@ -1,7 +1,136 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-*{
-    margin:0;
-    padding:0;
+
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* spacing between title and game */
+}
+.title {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f5a6fb;
+    padding: 0;
+    margin: 0;
+}
+
+/* .wrapper {
+    width: 360px;
+    padding: 20px;
+    background: #f8f8f8;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.wrapper {
+  background: #f8f8f8;
+  border-radius: 10px;
+  padding: 20px;
+  display: inline-block;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.card {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  perspective: 800px;
+  cursor: pointer;
+}
+
+
+.card .view {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    pointer-events: none;
+    position: absolute;
+    background: #fff;
+    border-radius: 7px;
+    backface-visibility: hidden;
+    transition: transform 0.25s linear;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+.card .front-view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card .back-view {
+    transform: rotateY(-180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card .back-view img {
+    max-width: 45px;
+    display: block;
+    margin: 0 auto;
+}
+
+.card .front-view span {
+    color: #f3a8f8;
+    font-size: 40px;
+}
+
+.card .back-view {
+    transform: rotateY(-180deg);
+}
+
+.card .back-view img {
+    max-width: 45px;
+}
+
+.card.flip .front-view {
+    transform: rotateY(180deg);
+}
+
+.card.flip .back-view {
+    transform: rotateY(0);
+}
+
+.card.shake {
+    animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-13px); }
+    40% { transform: translateX(13px); }
+    60% { transform: translateX(-8px); }
+    80% { transform: translateX(8px); }
 }
