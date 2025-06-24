@@ -1,6 +1,10 @@
 const cardContainer = document.querySelector(".cards");
 const fruits = ["apple", "banana", "cherry", "grapes", "kiwi", "raspberry", "strawberry", "watermelon"];
 const images = [...fruits, ...fruits].sort(() => Math.random() - 0.5);
+const flipSound = new Audio("Sounds/flip.mp3");
+const matchSound = new Audio("Sounds/match.mp3");
+const wrongSound = new Audio("Sounds/wrong.mp3");
+const winSound = new Audio("Sounds/win.mp3");
 
 // Dynamically create 16 cards
 images.forEach(imgName => {
@@ -26,6 +30,7 @@ function flipCard(e) {
     let clickedCard = e.currentTarget;
     if (clickedCard !== cardOne && !disableDeck) {
         clickedCard.classList.add("flip");
+        flipSound.play();
         if (!cardOne) return cardOne = clickedCard;
 
         cardTwo = clickedCard;
@@ -42,8 +47,11 @@ function matchCards(img1, img2) {
     if (img1 === img2) {
         matchedCard++;
         if (matchedCard === fruits.length) {
-            setTimeout(() => shuffleCards(), 1000);
+            setTimeout(() => shuffleCards(), 4550);
+            winSound.play();
         }
+        matchSound.play();
+
         cardOne.removeEventListener("click", flipCard);
         cardTwo.removeEventListener("click", flipCard);
         resetCards();
@@ -52,6 +60,8 @@ function matchCards(img1, img2) {
             cardOne.classList.add("shake");
             cardTwo.classList.add("shake");
         }, 400);
+        wrongSound.play();
+
         setTimeout(() => {
             cardOne.classList.remove("shake", "flip");
             cardTwo.classList.remove("shake", "flip");
