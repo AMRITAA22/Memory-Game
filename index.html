@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Font+Name">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
 </head>
@@ -15,8 +16,12 @@
     <br>
     <div class="wrapper">
         <ul class="cards"></ul>
+        <button onclick="shuffleCards()" class="restart-btn">
+    🔄 Restart
+  </button>
     </div>
     </div>
+    <div class="message">🎉 You Won the Game! 🎉</div>
     <script src="script.js"></script>
     </div>
 </body>
