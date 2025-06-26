@@ -46,11 +46,31 @@ function flipCard(e) {
 function matchCards(img1, img2) {
     if (img1 === img2) {
         matchedCard++;
-        if (matchedCard === fruits.length) {
-            setTimeout(() => shuffleCards(), 4550);
-            winSound.play();
-        }
         matchSound.play();
+
+        if (matchedCard === fruits.length) {
+            // Delay win effects for smoother UX
+            setTimeout(() => {
+                winSound.play();
+
+                // Show message
+                const msg = document.querySelector(".message");
+                msg.classList.add("show");
+
+                // Confetti burst
+                confetti({
+                    particleCount: 350,
+                    spread: 50,
+                    origin: { y: 0.9}
+                });
+
+                // Hide message & reshuffle after 3s
+                setTimeout(() => {
+                    msg.classList.remove("show");
+                    shuffleCards();
+                }, 3000);
+            }, 500);
+        }
 
         cardOne.removeEventListener("click", flipCard);
         cardTwo.removeEventListener("click", flipCard);
@@ -69,6 +89,7 @@ function matchCards(img1, img2) {
         }, 1200);
     }
 }
+
 
 function resetCards() {
     [cardOne, cardTwo, disableDeck] = [null, null, false];
