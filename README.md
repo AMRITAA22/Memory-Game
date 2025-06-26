@@ -31,7 +31,28 @@ A fun and interactive memory game built using **HTML**, **CSS**, and **JavaScrip
 ---
 
 ## 📂 Folder Structure
-<pre> ```bash project/ ├── index.html ├── style.css ├── script.js ├── README.md ├── Sounds/ │ ├── flip.mp3 │ ├── match.mp3 │ ├── wrong.mp3 │ └── win.mp3 ├── Images/ │ ├── apple.png │ ├── banana.png │ └── ... └── preview.png ``` </pre>
+```bash
+project/
+├── index.html
+├── style.css
+├── script.js
+├── README.md
+├── Sounds/
+│   ├── flip.mp3
+│   ├── match.mp3
+│   ├── wrong.mp3
+│   └── win.mp3
+├── Images/
+│   ├── apple.png
+│   ├── banana.png
+│   ├── cherry.png
+│   ├── grapes.png
+│   ├── kiwi.png
+│   ├── raspberry.png
+│   ├── strawberry.png
+│   └── watermelon.png
+└── preview.png
+
 
 
 ## 💡 Future Ideas
