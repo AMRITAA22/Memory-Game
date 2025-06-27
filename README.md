@@ -52,7 +52,7 @@ project/
 │   ├── strawberry.png
 │   └── watermelon.png
 └── preview.png
-
+```
 
 
 ## 💡 Future Ideas
